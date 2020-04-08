@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hci-weather-forecast"
+    }
+  },
+  "defaultProject": "hci-weather-forecast",
+  "cli": {
+    "analytics": "322cfb42-cda7-49bd-90b7-c695bbc96732"
+  }
 }
