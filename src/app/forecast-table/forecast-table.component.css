@@ -1,4 +1,15 @@
 table {
   width: 100%;
   margin-top: 50px;
+  text-align: center;
+}
+
+.side-th {
+	vertical-align: middle;
+}
+
+.th-day {
+	width: 20px;
+	/*writing-mode: vertical-rl;
+	text-orientation: upright;*/
 }

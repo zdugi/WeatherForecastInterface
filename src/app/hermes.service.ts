@@ -112,12 +112,11 @@ export class HermesService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather(settings: DisplayManagerSettings) {
+  getWeather(city: string) {
   	let params = new HttpParams();
 
-  	params = params.append('q', 'Novi Sad');
+  	params = params.append('q', city);
     params = params.append('appid', this.API_KEY);
-
 
   	return this.http.get<WeatherResponse>(this.API_URL, {params : params})
   }
