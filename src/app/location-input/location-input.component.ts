@@ -6,7 +6,6 @@ export interface Location {
   name: string;
 }
 
-
 @Component({
   selector: 'app-location-input',
   templateUrl: './location-input.component.html',

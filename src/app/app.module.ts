@@ -30,6 +30,8 @@ import {MatTableModule} from '@angular/material/table';
 
 import {MatCardModule} from '@angular/material/card';
 
+import { HttpClientModule } from '@angular/common/http'
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import {MatCardModule} from '@angular/material/card';
   	MatSelectModule,
   	Ng5SliderModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,7 +15,7 @@ export interface DisplayManagerSettings {
 })
 
 export class ManagerDialogComponent implements OnInit {
-  
+  onApply: EventEmitter<any> = new EventEmitter();
 
   displaySettings: DisplayManagerSettings = {
   	locations: [
