@@ -30,7 +30,10 @@ import {MatTableModule} from '@angular/material/table';
 
 import {MatCardModule} from '@angular/material/card';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { DetailsDialogComponent } from './details-dialog/details-dialog.component'
+
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -39,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http'
     ForecastGraphComponent,
     ForecastTableComponent,
     ManagerDialogComponent,
-    LocationInputComponent
+    LocationInputComponent,
+    DetailsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,7 @@ import { HttpClientModule } from '@angular/common/http'
   	Ng5SliderModule,
     MatTableModule,
     MatCardModule,
+    MatButtonToggleModule,
     HttpClientModule
   ],
   providers: [],

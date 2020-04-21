@@ -1,183 +1,30 @@
-<!--<table mat-table [dataSource]="dataSource">
-
-  <ng-container matColumnDef="location">
-    <th mat-header-cell *matHeaderCellDef> Location </th>
-    <td mat-cell *matCellDef="let element"> {{element}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="stats">
-    <th mat-header-cell *matHeaderCellDef
-        [attr.colspan]="2"> 
-      First group 
-    </th>
-  </ng-container>
-
-  <ng-container matColumnDef="empty">
-    <th mat-header-cell *matHeaderCellDef> 
-      &nbsp;
-    </th>
-  </ng-container>
-
-  <ng-container matColumnDef="temp">
-    <th mat-header-cell *matHeaderCellDef> Temp </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-
-
-  <tr mat-header-row *matHeaderRowDef="['empty', 'stats']"></tr>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
--->
-
-<!--
-<table>
-  <thead>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-    <th>Temperature</th>
-    <th>Min. Temperature</th>
-    <th>Max. Temperature</th>
-    <th>Humidity</th>
-    <th>Pressure</th>
-    <th>Visibility</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="side-th" rowspan="10">Novi Sad</td>
-      <td class="side-th th-day" rowspan="10">MON</td>
-      <td>0h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>3h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>6h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>9h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>12h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>15h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>18h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>21h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>23h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <td>24h</td>
-      <td>281.78</td>
-      <td>281.48</td>
-      <td>281.78</td>
-      <td>1018</td>
-      <td>68</td>
-      <td>1000</td>
-    </tr>
-  </tbody>
-</table>
--->
-<table>
-  <thead>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-    <th>Temperature</th>
-    <th>Min. Temperature</th>
-    <th>Max. Temperature</th>
-    <th>Humidity</th>
-    <th>Pressure</th>
-    <th>Visibility</th>
-  </thead>
-  <tbody *ngFor="let frame of wrapperData">
-    <tr *ngFor="let e of frame.records; let i = index">
-      <td *ngIf="i == 0" [attr.rowspan]="frame.records.length" class="side-th">{{ frame.location }}</td>
-      <!-- *ngIf="e.group_leader" [attr.rowspan]="frame.records.length" -->
-      <td *ngIf="e.group_size > 0" [attr.rowspan]="e.group_size" class="side-th th-day">
-        {{ e.group_leader }}
-      </td>
-      <td>{{ getHour(e.timestamp) + 'h' }}</td>
-      <td>{{ e.temp }}</td>
-      <td>{{ e.temp_min }}</td>
-      <td>{{ e.temp_max }}</td>
-      <td>{{ e.pressure }}</td>
-      <td>{{ e.humidity }}</td>
-      <td>1000</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="data.length > 0; else message">
+  <h1>Current mesurement ({{ data[0].records[0].timestamp }})</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Temp</th>
+        <th>Min. temp</th>
+        <th>Max. temp</th>
+        <th>Pressure</th>
+        <th>Humidity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of data" (click)="openDetails(element)">
+        <td>{{ element.location }}</td>
+        <td>{{ element.records[0].temp }}</td>
+        <td>{{ element.records[0].temp_min }}</td>
+        <td>{{ element.records[0].temp_max }}</td>
+        <td>{{ element.records[0].pressure }}</td>
+        <td>{{ element.records[0].humidity }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #message>
+  <div class="message">
+    No locations to display
+  </div>
+</ng-template>

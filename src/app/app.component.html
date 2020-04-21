@@ -3,6 +3,7 @@
     <button mat-flat-button color="primary" (click)="openDialog()">Manage</button>
   </div>
   <div>
+  	<h1>{{ forecastingTitle }}</h1>
     <app-forecast-graph [data]="graphData" [labels]="graphLabels"></app-forecast-graph>
   </div>
   <div>

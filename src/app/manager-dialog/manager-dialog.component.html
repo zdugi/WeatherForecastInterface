@@ -2,16 +2,16 @@
 <mat-dialog-content class="mat-typography">
 	<form>
 		<div>
-			<app-location-input [(loc)]="globalSettings.locations"></app-location-input>
+			<app-location-input [(loc)]="settings.locations"></app-location-input>
 		</div>
 		<div>
 			<mat-form-field>
 				<mat-label>Property</mat-label>
-				<mat-select [(value)]="globalSettings.displayProperty">
-					<mat-option value="Temperature">Temperature</mat-option>
-					<mat-option value="Cloud">Cloud</mat-option>
-					<mat-option value="Pressure">Pressure</mat-option>
-					<mat-option value="Humidity">Humidity</mat-option>
+				<mat-select [(value)]="settings.displayProperty">
+					<mat-option value="temperature">Temperature</mat-option>
+					<mat-option value="cloud">Cloud</mat-option>
+					<mat-option value="pressure">Pressure</mat-option>
+					<mat-option value="humidity">Humidity</mat-option>
 				</mat-select>
 			</mat-form-field>
 		</div>
@@ -20,7 +20,7 @@
 			<mat-slider min="1" max="5"
 						thumbLabel 
 						[displayWith]="displaySliderValue"
-						[(value)]="globalSettings.forecastInterval"></mat-slider>
+						[(value)]="settings.forecastInterval"></mat-slider>
 		</div>
 	</form>
 </mat-dialog-content>

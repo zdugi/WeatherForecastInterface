@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Location } from '../location-input/location-input.component';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export interface DisplayManagerSettings {
-  locations: string[];
+  locations: Location[];
   displayProperty: string;
   forecastInterval: number;
 }
@@ -23,6 +24,8 @@ export class ManagerDialogComponent implements OnInit {
   	displayProperty: 'Temperature',
   	forecastInterval: 2
   }
+
+  settings: DisplayManagerSettings;
   
   @Input() globalSettings: DisplayManagerSettings;
 
@@ -34,7 +37,9 @@ export class ManagerDialogComponent implements OnInit {
     this.displaySettingsChange.emit(this.displaySettings)
   }
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { 
+    this.settings = data;
+  }
 
   ngOnInit(): void {
   }

@@ -67,17 +67,14 @@
     }
   }
 
-  table tbody>tr:hover {
-  	background-color: #f1f1f1;
-  	cursor: pointer;
-  }
+mat-dialog-content {
+  min-width: 600px;
+  min-height: 400px;
+}
 
-  div {
-  	margin-top: 30px;
-  }
+mat-button-toggle-group {
+  margin: 10px 0 10px 0;
+}
 
-  .message {
-    text-align: center;
-    background-color: #f1f1f1;
-    padding: 50px;
-  }
+mat-dialog-actions {
+}

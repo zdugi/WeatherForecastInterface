@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>{{ data.location }} Forecast</h2>
+<mat-dialog-content class="mat-typography">
+	<div id="root">
+		<mat-button-toggle-group  #group="matButtonToggleGroup" [value]="columns[0]">
+			<mat-button-toggle *ngFor="let element of columns" 
+			(click)="onWeekChange(element)" [value]="element" aria-label="Text align left">
+				{{ element }}
+			</mat-button-toggle>
+		</mat-button-toggle-group>
+	<table>
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th>T</th>
+				<th>MI</th>
+				<th>MX</th>
+				<th>P</th>
+				<th>H</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let element of rows">
+				<td>{{ getHour(element.timestamp) }}</td>
+				<td>{{ element.temp }}</td>
+				<td>{{ element.temp_min }}</td>
+				<td>{{ element.temp_max }}</td>
+				<td>{{ element.pressure }}</td>
+				<td>{{ element.humidity }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

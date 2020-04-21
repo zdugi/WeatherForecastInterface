@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForecastTableComponent } from './forecast-table.component';
 
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 describe('ForecastTableComponent', () => {
   let component: ForecastTableComponent;
   let fixture: ComponentFixture<ForecastTableComponent>;

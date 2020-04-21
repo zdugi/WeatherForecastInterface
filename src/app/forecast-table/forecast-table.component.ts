@@ -1,18 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-];
-
+import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 export interface TableEntry {
   group_leader: string;
@@ -25,7 +14,6 @@ export interface TableEntry {
   humidity: number;
 }
 
-
 export interface TableFrame {
   location: string;
   records: TableEntry[];
@@ -37,37 +25,36 @@ export interface TableFrame {
   templateUrl: './forecast-table.component.html',
   styleUrls: ['./forecast-table.component.css']
 })
+
+
+
 export class ForecastTableComponent implements OnInit {
-	displayedColumns: string[] = ['location', 'name', 'weight', 'symbol'];
+	displayedColumns: string[] = ['location', 'temp', 'minTemp', 'maxTemp', 'pressure', 'humidity'];
   // dataSource = ELS;
 
   @Input() data: TableFrame[];
 
   // processing data
   get wrapperData() {
-    for (let j = 0; j < this.data.length; j++) {
-      let cnt = 0;
-      for (let i = this.data[j].records.length - 1; i > 0; i--) {
-        if (this.getDay(this.data[j].records[i].timestamp) != this.getDay(this.data[j].records[i-1].timestamp)) {
-          this.data[j].records[i].group_size = cnt + 1;
-          cnt = 0;
-        } else {
-          cnt++;
-        }
-      }
-
-      if (cnt > 0)
-        this.data[j].records[0].group_size = cnt + 1; // why +1
-    }
-
+    console.log(this.data.length)
     return this.data;
   }
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDetails(details) {
+    const dialogRef = this.dialog.open(DetailsDialogComponent, {
+      data:{
+        frame: details,
+        location: location
+      } 
+    });
+
+    console.log('ok')
+  }
 
   // helper
   getDay(timestamp: string) : string {
