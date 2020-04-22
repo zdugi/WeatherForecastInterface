@@ -5,8 +5,7 @@
         <canvas *ngIf="data.length > 0" baseChart width="200" height="100"
                     [datasets]="data"
                     [labels]="labels"
-                    [colors]="lineChartColors"
-                    [options]="lineChartOptions"
+                    [options]="options"
                     [legend]="lineChartLegend"
                     [chartType]="lineChartType"
                     [plugins]="lineChartPlugins"></canvas>

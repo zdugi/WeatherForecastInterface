@@ -1,13 +1,13 @@
+<p>Application is loading...</p>
 <div class="general">
   <div class="button-panel" align="right">
     <button mat-flat-button color="primary" (click)="openDialog()">Manage</button>
   </div>
   <div>
-  	<h1>{{ forecastingTitle }}</h1>
-    <app-forecast-graph [data]="graphData" [labels]="graphLabels"></app-forecast-graph>
+  	<h1 *ngIf="graphData.length > 0">{{ forecastingTitle }}</h1>
+    <app-forecast-graph [data]="graphData" [labels]="graphLabels" [unitsLabel]="unitsLabel" #graphic></app-forecast-graph>
   </div>
   <div>
     <app-forecast-table [data]="tableData"></app-forecast-table>
-    <a href=""></a>
   </div>
 </div>

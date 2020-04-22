@@ -12,6 +12,7 @@ export interface TableEntry {
   temp_max: number;
   pressure: number;
   humidity: number;
+  cloudiness: number;
 }
 
 export interface TableFrame {

@@ -7,7 +7,7 @@ import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/a
 
 import { ManagerDialogComponent, DisplayManagerSettings } from '../manager-dialog/manager-dialog.component';
 
-import { availableLocations } from '../app.component';
+import { availableLocations } from '../hermes.service';
 
 export interface Location {
   name: string;
@@ -31,7 +31,6 @@ export class LocationInputComponent {
   errorMessage: string = ''
 
   constructor() {
-    console.log(this.allLocations)
   }
 
   locations: Location[] = [
@@ -68,17 +67,14 @@ export class LocationInputComponent {
       
       if (value == pivotValue) {
         flag = true;
-        console.log('dobro')
       }
       else if (value < pivotValue) {
         if (j == pivot) {
-          console.log('neh')
           break
         }
         j = pivot;
       } else {
         if (i == pivot) {
-          console.log('neh')
           break
         }
 
@@ -94,6 +90,13 @@ export class LocationInputComponent {
     }
 
     this.errorMessage = ''
+
+    for (let loc of this.loc) {
+      if (loc.name == value) {
+        this.errorMessage = value + ' is already in list';
+        return;
+      }
+    }
 
     if ((value || '').trim()) {
       this.loc.push({name: value.trim()});

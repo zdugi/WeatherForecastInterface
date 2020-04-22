@@ -49,7 +49,6 @@ export class ManagerDialogComponent implements OnInit {
   }
 
   applyChanges() {
-    console.log('ucitano')
   }
 
   revertChanges() {

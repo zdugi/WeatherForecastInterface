@@ -14,6 +14,8 @@ export class ForecastGraphComponent implements OnInit {
   @Input() data: ChartDataSets[];
   @Input() labels: Label[];
 
+  @Input() unitsLabel: string;
+
   public lineChartOptions: (ChartOptions) = {
     responsive: true,
     scales: {
@@ -31,6 +33,12 @@ export class ForecastGraphComponent implements OnInit {
       ]
     },
   };
+
+  get options() : ChartOptions {
+    this.lineChartOptions.scales.yAxes[0].scaleLabel.labelString = this.unitsLabel;
+    return this.lineChartOptions;
+  }
+
   public lineChartColors: Color[] = [];
 
   public lineChartLegend = true;
@@ -40,6 +48,12 @@ export class ForecastGraphComponent implements OnInit {
   @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
 
   constructor() {
+    
+  }
+
+  // find better way
+  public setLabel(label) {
+    this.lineChartOptions.scales.yAxes[0].scaleLabel.labelString = 'zdravko';
   }
 
   ngOnInit() {

@@ -11,11 +11,12 @@
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
-				<th>T</th>
-				<th>MI</th>
-				<th>MX</th>
-				<th>P</th>
-				<th>H</th>
+				<th matTooltip="Temperature (Celsius)">T</th>
+				<th matTooltip="Minimal temperature (Celsius)">MI</th>
+				<th matTooltip="Maximal temperature (Celsius)">MX</th>
+				<th matTooltip="Atmospheric pressure on the sea level (hPa)">P</th>
+				<th matTooltip="Humidity (%)">H</th>
+				<th matTooltip="Cloudiness (%)">C</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,6 +27,7 @@
 				<td>{{ element.temp_max }}</td>
 				<td>{{ element.pressure }}</td>
 				<td>{{ element.humidity }}</td>
+				<td>{{ element.cloudiness }}</td>
 			</tr>
 		</tbody>
 	</table>

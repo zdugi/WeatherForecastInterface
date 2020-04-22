@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailsDialogComponent } from './details-dialog/details-dialog.component'
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import {MatTooltipModule} from '@angular/material/tooltip'; 
 
 @NgModule({
   declarations: [
@@ -56,11 +56,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
   	MatFormFieldModule,
   	MatIconModule,
   	MatSelectModule,
-  	Ng5SliderModule,
     MatTableModule,
     MatCardModule,
     MatButtonToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -78,6 +78,19 @@
 
   .message {
     text-align: center;
-    background-color: #f1f1f1;
+    background-color: #9fbfdf;
     padding: 50px;
+    font-size: 30px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }
+
+  @keyframes example {
+  0%   {margin-left: 0px;}
+  50% {margin-left: 20px}
+  100% {margin-left: 0px}
+}
+
+  #cloud {
+    animation: example 3s infinite;
   }
