@@ -71,20 +71,20 @@ export interface WeatherResponse {
 }
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class HermesService {
 	API_KEY: string = '10afd3bf1f2c38f60f2deb168cb4369d';
 	API_URL: string = 'https://api.openweathermap.org/data/2.5/forecast'
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  getWeather(city: string) {
-  	let params = new HttpParams();
+	getWeather(city: string) {
+		let params = new HttpParams();
 
-  	params = params.append('q', city);
-    params = params.append('appid', this.API_KEY);
+		params = params.append('q', city);
+		params = params.append('appid', this.API_KEY);
 
-  	return this.http.get<WeatherResponse>(this.API_URL, {params : params})
-  }
+		return this.http.get<WeatherResponse>(this.API_URL, {params : params})
+	}
 }

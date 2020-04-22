@@ -24,8 +24,6 @@ import {MatIconModule} from '@angular/material/icon';
 
 import {MatSelectModule} from '@angular/material/select';
 
-import { Ng5SliderModule } from 'ng5-slider';
-
 import {MatTableModule} from '@angular/material/table'; 
 
 import {MatCardModule} from '@angular/material/card';
