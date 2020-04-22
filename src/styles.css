@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
 body { 
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -14,4 +13,8 @@ body {
 	padding: 20px;
 	border: 1px solid transparent;
 	border-radius: 10px;
+}
+
+md-dialog > form {
+    overflow: visible !important;
 }
