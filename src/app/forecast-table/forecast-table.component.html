@@ -1,4 +1,4 @@
-<div *ngIf="data.length > 0; else message">
+<div *ngIf="data.length > 0">
   <h1>Current measurement ({{ data[0].records[0].timestamp }})</h1>
   <table>
     <thead>
@@ -25,9 +25,3 @@
     </tbody>
   </table>
 </div>
-<ng-template #message>
-  <div class="message">
-    <p>No locations to display</p>
-    <img id="cloud" src="./assets/cloudy_sunny.png" width="200">
-  </div>
-</ng-template>

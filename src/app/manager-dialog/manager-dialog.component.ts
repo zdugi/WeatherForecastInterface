@@ -25,11 +25,10 @@ export class ManagerDialogComponent implements OnInit {
   	forecastInterval: 2
   }
 
-  settings: DisplayManagerSettings;
-  
-  @Input() globalSettings: DisplayManagerSettings;
-
+  @Input() settings: DisplayManagerSettings;
   @Output() displaySettingsChange = new EventEmitter();
+
+  @Output() public onSubmit: EventEmitter<any> = new EventEmitter();
 
   set model(val) {
     console.log('update')
@@ -37,8 +36,7 @@ export class ManagerDialogComponent implements OnInit {
     this.displaySettingsChange.emit(this.displaySettings)
   }
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { 
-    this.settings = data;
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -49,9 +47,6 @@ export class ManagerDialogComponent implements OnInit {
   }
 
   applyChanges() {
-  }
-
-  revertChanges() {
-
+    this.onSubmit.emit();
   }
 }

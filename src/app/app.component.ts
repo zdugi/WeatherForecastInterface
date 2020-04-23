@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { ManagerDialogComponent, DisplayManagerSettings } from './manager-dialog/manager-dialog.component';
+import { DisplayManagerSettings } from './manager-dialog/manager-dialog.component';
 import { HermesService, WeatherResponse, WeatherRecord, PartialWeatherRecord, PartialRecord } from './hermes.service';
 import { Location } from './location-input/location-input.component';
 import { TableFrame, TableEntry } from './forecast-table/forecast-table.component';
@@ -45,21 +45,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ManagerDialogComponent, {
-      data: this.globalSettings
-    });
-
-    dialogRef.componentInstance.globalSettings = this.globalSettings
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-      	this.updateDisplay()
-      }
-    });
-  }
-
-  private updateDisplay() : void {
+  public updateDisplay() : void {
     this.forecastingTitle = 'Forecast for ' + this.globalSettings.forecastInterval + ' days';
 
     // clean

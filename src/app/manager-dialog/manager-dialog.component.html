@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Display Manager</h2>
+<!--<h2 mat-dialog-title>Display Manager</h2>
 <mat-dialog-content class="mat-typography">
 	<form>
 		<div>
@@ -31,3 +31,32 @@
 			cdkFocusInitial 
 			(click)="applyChanges()">Apply</button>
 </mat-dialog-actions>
+-->
+<mat-card>
+<form>
+	<div>
+		<app-location-input [(loc)]="settings.locations"></app-location-input>
+	</div>
+	<div>
+		<mat-form-field>
+			<mat-label>Graphic visualize</mat-label>
+			<mat-select [(value)]="settings.displayProperty">
+				<mat-option value="temperature">Temperature</mat-option>
+				<mat-option value="cloudiness">Cloudiness</mat-option>
+				<mat-option value="pressure">Pressure</mat-option>
+				<mat-option value="humidity">Humidity</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div>
+		<mat-label>Forecast interval</mat-label>
+		<mat-slider min="1" max="5"
+		thumbLabel 
+		[displayWith]="displaySliderValue"
+		[(value)]="settings.forecastInterval"></mat-slider>
+	</div>
+</form>
+<div align="right">
+	<button mat-flat-button color="primary" (click)="applyChanges()">Show forecast</button>
+</div>
+</mat-card>

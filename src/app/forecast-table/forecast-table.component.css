@@ -92,5 +92,6 @@
 }
 
   #cloud {
+    margin: auto;
     animation: example 3s infinite;
   }
