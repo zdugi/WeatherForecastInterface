@@ -59,26 +59,19 @@ export class LocationInputComponent {
     var j = this.allLocations.length;
     var flag = false;
 
-    while (i < j && !flag) {
-      var pivot = Math.ceil((i + j) / 2);
+    while (i <= j && !flag) {
+      var pivot = i + Math.floor((j - i) / 2);
       var pivotValue = this.allLocations[pivot];
 
-      console.log(pivotValue, i)
+      // console.log(pivotValue, i, j)
       
       if (value == pivotValue) {
         flag = true;
       }
-      else if (value < pivotValue) {
-        if (j == pivot) {
-          break
-        }
-        j = pivot;
+      else if (pivotValue < value) {
+        i = pivot + 1;
       } else {
-        if (i == pivot) {
-          break
-        }
-
-        i = pivot;
+        j = pivot - 1;
       }
 
     }

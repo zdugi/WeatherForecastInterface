@@ -16,8 +16,6 @@ export interface DisplayManagerSettings {
 })
 
 export class ManagerDialogComponent implements OnInit {
-  onApply: EventEmitter<any> = new EventEmitter();
-
   displaySettings: DisplayManagerSettings = {
   	locations: [
     ],
@@ -26,15 +24,7 @@ export class ManagerDialogComponent implements OnInit {
   }
 
   @Input() settings: DisplayManagerSettings;
-  @Output() displaySettingsChange = new EventEmitter();
-
   @Output() public onSubmit: EventEmitter<any> = new EventEmitter();
-
-  set model(val) {
-    console.log('update')
-    this.displaySettings = val
-    this.displaySettingsChange.emit(this.displaySettings)
-  }
 
   constructor() {
   }

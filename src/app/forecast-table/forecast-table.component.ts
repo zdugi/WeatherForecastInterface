@@ -54,7 +54,7 @@ export class ForecastTableComponent implements OnInit {
       } 
     });
 
-    console.log('ok')
+    // console.log('ok')
   }
 
   // helper
